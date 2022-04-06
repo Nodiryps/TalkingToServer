@@ -1,0 +1,15 @@
+<div class="w3-card-4 w3-margin w3-padding-bottom u2u-hand"
+     [class.w3-light-blue]="task.priority === low"
+     [class.w3-dark-grey]="task.priority === normal"
+     [class.w3-pink]="task.priority === high"
+     (click)="onClicked.emit(task)">
+  <i class="material-icons w3-left" *ngIf="task.completed">done</i>
+  <i class="material-icons w3-right">launch</i>
+  <div class="w3-container w3-center w3-padding">
+    <h3>{{task.description}}</h3>
+    
+    <button class="w3-btn w3-green" (click)="setCompleted(task, $event)">Completed</button>
+    <button class="w3-btn w3-red" (click)="setCancelled(task, $event)">Cancel</button>
+  </div>
+
+</div>

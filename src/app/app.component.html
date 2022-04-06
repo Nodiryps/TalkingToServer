@@ -1,0 +1,14 @@
+<header class="w3-container w3-teal">
+  <h1>Task Manager</h1>
+</header>
+<div class="w3-row">
+  <div class="w3-col m4 l3">
+    <app-task-creator (onCreated)="addTaskToList($event)" ></app-task-creator>
+    <app-task-list
+            [tasks]="(tasks$ | async)!"
+            (onCancelled)="removeTaskFromList($event)"
+            (onTaskClicked)="onTaskClicked($event)">
+    </app-task-list>
+  </div>
+</div>
+<app-task-editor [displayed]="isEditorDisplayed" [task]="editableTask" (onRequestClose)="onEditorCloseRequested()"></app-task-editor>

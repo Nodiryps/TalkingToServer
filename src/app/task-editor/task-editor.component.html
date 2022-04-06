@@ -1,0 +1,58 @@
+<div class="w3-modal" [ngClass]="editorClasses">
+  <div class="w3-modal-content">
+    <div>
+      <span class="w3-closebtn w3-margin" (click)="close()">×</span>
+      <div>
+
+        <div class="w3-container w3-teal">
+          <h2>Editor</h2>
+        </div>
+
+        <form class="w3-container" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+          <div class="w3-group">
+            <label>Description</label>
+            <input formControlName="description" class="w3-input">
+            <div *ngIf="form.controls['description'].dirty">
+              <p *ngIf="form.controls['description'].hasError('required')" class="w3-red">
+                This field is required</p>
+              <p *ngIf="form.controls['description'].hasError('maxlength')" class="w3-red">
+                This value is too long</p>
+            </div>
+          </div>
+
+          <div class="w3-group">
+            <label>Priority</label>
+            <select formControlName="priority" class="w3-select">
+                <option *ngFor="let priority of priorities"
+                        [ngValue]="priority">
+                  {{getNameForPriority(priority)}}
+                </option>
+              </select>
+          </div>
+
+          <div class="w3-group">
+            <label>Start Date</label>
+            <input formControlName="startDate" class="w3-input" type="date">
+          </div>
+
+          <div class="w3-group">
+            <label>End Date</label>
+            <input formControlName="endDate" class="w3-input" type="date">
+            <div *ngIf="form.controls['startDate'].dirty || form.controls['endDate'].dirty">
+              <p *ngIf="form.controls['endDate'].hasError('notBefore')" class="w3-red">
+                End date can't be smaller than start date</p>
+            </div>
+            
+          </div>
+
+          <div class="w3-group">
+            <button type="submit" [disabled]="!form.valid" class="w3-btn w3-padding w3-teal">Save</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

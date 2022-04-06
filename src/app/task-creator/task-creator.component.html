@@ -1,0 +1,22 @@
+<div class="w3-container w3-margin w3-border">
+
+  <p>
+    <label>Description</label>
+    <input [(ngModel)]="newTask.description" class="w3-input" type="text"/>
+  </p>
+
+  <p>
+    <label>Priority</label>
+    <select [(ngModel)]="newTask.priority" class="w3-select">
+      <option *ngFor="let priority of priorities" 
+              [ngValue]="priority">
+        {{getNameForPriority(priority)}}
+      </option>
+    </select>
+  </p>
+
+  <p>
+    <a href="" (click)="addTask(newTask, $event)" class="w3-right">add new</a>
+  </p>
+
+</div>
