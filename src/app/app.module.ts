@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { TaskCreatorComponent } from './task-creator/task-creator.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TaskListComponent } from './task-list/task-list.component';
-import { TaskService } from './task.service';
-import { MockTaskService } from './mock-task.service';
+import { TaskService } from './services/task.service';
 import { TaskEditorComponent } from './task-editor/task-editor.component';
 import {HttpClientModule} from '@angular/common/http';
+import {HttpTaskService} from './services/http-task.service';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
-  providers: [{ provide: TaskService, useClass: MockTaskService }],
+  providers: [{ provide: TaskService, useClass: HttpTaskService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

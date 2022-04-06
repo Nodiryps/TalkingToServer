@@ -1,5 +1,5 @@
-import { Task } from './task';
-import { Priority } from './priority';
+import { Task } from '../task';
+import { Priority } from '../priority';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 

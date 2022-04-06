@@ -1,5 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { Priority, PRIORITIES } from '../priority';
 import { Task } from '../task';
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, OnChanges } from '@angular/core';

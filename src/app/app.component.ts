@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { Task } from "./task";
 import { Priority } from "./priority";
-import { TaskService } from "./task.service";
+import { TaskService } from "./services/task.service";
 import {Observable} from "rxjs";
 
 @Component({
